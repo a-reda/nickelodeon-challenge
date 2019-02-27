@@ -14,7 +14,7 @@
     For futher details on `create-react-app`, please see https://github.com/facebook/create-react-app
     
     
-    In order to use `create react app` you have some prerequisites to fullfil:
+    In order to use `create react app` you need:
     - nodejs + npm
     
       https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
