@@ -51,6 +51,3 @@ fetch('/schedule.json').then(/* do something ... */)
 6. Once you are done, send a Pull Request from your branch back to master with your solution
 
 **Best of luck!!**
-
-
-
