@@ -30,3 +30,14 @@
   height: 5vh;
   background-color: #27C0D7;
 }
+
+
+.Program {
+  display: flex;
+  flex-direction: column;
+}
+
+.ProgramInfo {
+  display: flex;
+  flex-direction: row;
+}

@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 
+import Program from './Program'
+
 
 
 class ProgramsList extends Component {
-
 
   render() {
     return (
       <div>
         {this.props.programs.map((p, i) => (
-          <p key={i}>{p.seriesTitle}</p>
+          <Program key={i} program={p}/>
         ))}
       </div>
     );
-
   }
-
 
 }
 
