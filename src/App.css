@@ -34,19 +34,19 @@
   flex-direction: column;
 }
 
-.ProgramInfo {
+.Programinfo {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.LeftInfo {
+.Leftinfo {
     display: flex;
     flex-direction: row;
     justify-content: left;
 }
 
-.ProgramDescr {
+.Programdescr {
   background-color: #F2F2F2;
   margin: 5px;
 }
@@ -60,20 +60,52 @@
   height: 100%;
 }
 
-.Timetitle {
+.Programtext {
   display: flex;
   flex-direction: column;
 }
 
-.Timetitle h3 {
+.Programtext h3 {
   font-size: 18px;
   padding-left: 10px;
   margin: 4px;
 }
 
+.Timetitle {
+  font-weight: normal;
+  color: #777777;
+}
+
+.Onnow {
+  color: #E7427A;
+  font-weight: normal;
+}
+
+.Onnow::before {
+  color: #E7427A;
+  content: "On Now  ";
+  font-weight: bold;
+}
+
+.Upnext {
+  color: #777777;
+  font-weight: normal;
+}
+
+.Upnext::before {
+  color: #777777;
+  content: "Up Next  ";
+  font-weight: bold;
+}
+
+.Programtitle {
+  color: #27C0D7;
+}
+
 .Toggleicon {
   height: 50px;
   margin-right: 10px;
+  color: #CCCCCC;
 }
 
 .Toggleiconcontainer {

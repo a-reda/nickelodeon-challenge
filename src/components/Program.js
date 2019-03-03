@@ -1,35 +1,51 @@
 import React, { Component } from 'react';
-import { FaAngleDown } from 'react-icons/fa';
+import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 
 class Program extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {showDescription: false}
+  }
 
   render() {
     const p = this.props.program
     console.log(p)
     return (
       <div className="Program">
-        <div className="ProgramInfo">
-            <div className="LeftInfo">
+        <div className="Programinfo">
+            <div className="Leftinfo">
               <div className="Thumbnail"><img src={p.images['r16-9']}/></div>
-              <div className="Timetitle">
-                  <h3>{this.getFormattedTime(p)}</h3>
-                  <h3>{p.seriesTitle}</h3>
+              <div className="Programtext">
+                  {this.getFormattedTime(p)}
+                  <h3 className="Programtitle">{p.seriesTitle}</h3>
               </div>
             </div>
-            <div className="Toggleiconcontainer"><FaAngleDown className="Toggleicon" /></div>
+            <div className="Toggleiconcontainer">{this.getToggleIcon()}</div>
         </div>
-        <div className="ProgramDescr">
-          <p>{p.episodeTitle}</p>
-          <p>{p.description}</p>
-        </div>
+        {this.state.showDescription ?
+          <div className="Programdescr">
+            <p>{p.episodeTitle}</p>
+            <p>{p.description}</p>
+          </div>
+          : ''}
       </div>
     );
   }
 
+  toggleDescription = () => this.setState({showDescription: !this.state.showDescription})
+
+  getToggleIcon = () =>
+        this.state.showDescription ?
+          <FaAngleDown className="Toggleicon" onClick={this.toggleDescription}/>
+        : <FaAngleUp className="Toggleicon" onClick={this.toggleDescription}/>
+
+
   getFormattedTime = (p) => {
-    const prefix = p._onnow ? 'On Now ': p._upnext ? 'Up Next ' : '';
-    return prefix + p.formattedTime
+    const className = p._onnow ? 'Onnow': p._upnext  ? 'Upnext' : 'Timetitle';
+    return (<div className='Leftinfo'>
+              <h3 className={className}>{p.formattedTime}</h3>
+            </div>)
   }
 
 }

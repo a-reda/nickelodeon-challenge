@@ -13,7 +13,8 @@ class App extends Component {
     this.state = {
       schedule: {},
       sorted: false,
-      selectedChannel: 'nickjr'
+      selectedChannel: 'nickjr',
+      searchText: ''
     }
 
   }
@@ -37,6 +38,7 @@ class App extends Component {
           <h3>What's on today: {Date.now()}</h3>
           <FaSortAlphaDown onClick={this.toggleSort}/>
           <p>{this.state.sorted}</p>
+          <input type="text" onChange={this.handleTextChange}/>
         </header>
         <div className="Tabs">
             <div className={this.getTabClass("nickjr")} onClick={() => this.onSelectTab("nickjr")}>
@@ -47,7 +49,7 @@ class App extends Component {
             </div>
         </div>
         <div>
-            <ProgramsList programs={this.getPrograms()} sorted={this.state.sorted} />
+            <ProgramsList programs={this.getPrograms()} sorted={this.state.sorted} search={this.state.searchText} />
             <p></p>
         </div>
       </div>
@@ -59,13 +61,14 @@ class App extends Component {
     console.log(this.state.schedule)
   }
 
+  handleTextChange = (e) => this.setState({searchText: e.target.value})
+
   toggleSort = () => this.setState({sorted: !this.state.sorted})
 
   getTabClass = (name) => this.state.selectedChannel === name ? "Tab-selected" : "Tab"
 
-  getPrograms = () => {
-    return this.state.schedule.channels ? this.state.schedule.channels[0].schedule : []
-  }
+  getPrograms = () => this.state.schedule.channels ? this.state.schedule.channels[0].schedule : []
+
 
 }
 
