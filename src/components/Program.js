@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { FaAngleDown } from 'react-icons/fa';
 
 class Program extends Component {
-
 
 
   render() {
@@ -10,18 +10,22 @@ class Program extends Component {
     return (
       <div className="Program">
         <div className="ProgramInfo">
-            <img src={p.images['r16-9']} height={40}/>
-            <h3>{p.seriesTitle}</h3>
-            <h4> - {p.formattedTime}</h4>
+            <div className="LeftInfo">
+              <div className="Thumbnail"><img src={p.images['r16-9']}/></div>
+              <div className="Timetitle">
+                  <h3>{p.formattedTime}</h3>
+                  <h3>{p.seriesTitle}</h3>
+              </div>
+            </div>
+            <div className="Toggleiconcontainer"><FaAngleDown className="Toggleicon" /></div>
         </div>
         <div className="ProgramDescr">
-          {p.description}
+          <p>{p.episodeTitle}</p>
+          <p>{p.description}</p>
         </div>
       </div>
     );
-
   }
-
 
 }
 
