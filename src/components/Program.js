@@ -13,7 +13,7 @@ class Program extends Component {
             <div className="LeftInfo">
               <div className="Thumbnail"><img src={p.images['r16-9']}/></div>
               <div className="Timetitle">
-                  <h3>{p.formattedTime}</h3>
+                  <h3>{this.getFormattedTime(p)}</h3>
                   <h3>{p.seriesTitle}</h3>
               </div>
             </div>
@@ -25,6 +25,11 @@ class Program extends Component {
         </div>
       </div>
     );
+  }
+
+  getFormattedTime = (p) => {
+    const prefix = p._onnow ? 'On Now ': p._upnext ? 'Up Next ' : '';
+    return prefix + p.formattedTime
   }
 
 }

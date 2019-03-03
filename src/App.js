@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { FaSortAlphaDown } from 'react-icons/fa';
 import './App.css';
-
 
 import ProgramsList from './components/ProgramsList'
 
@@ -12,6 +12,7 @@ class App extends Component {
 
     this.state = {
       schedule: {},
+      sorted: false,
       selectedChannel: 'nickjr'
     }
 
@@ -34,6 +35,8 @@ class App extends Component {
         <header className="App-header">
           <h1>Schedule</h1>
           <h3>What's on today: {Date.now()}</h3>
+          <FaSortAlphaDown onClick={this.toggleSort}/>
+          <p>{this.state.sorted}</p>
         </header>
         <div className="Tabs">
             <div className={this.getTabClass("nickjr")} onClick={() => this.onSelectTab("nickjr")}>
@@ -44,7 +47,7 @@ class App extends Component {
             </div>
         </div>
         <div>
-            <ProgramsList programs={this.getPrograms()} />
+            <ProgramsList programs={this.getPrograms()} sorted={this.state.sorted} />
             <p></p>
         </div>
       </div>
@@ -56,8 +59,9 @@ class App extends Component {
     console.log(this.state.schedule)
   }
 
-  getTabClass = (name) => this.state.selectedChannel === name ? "Tab-selected" : "Tab"
+  toggleSort = () => this.setState({sorted: !this.state.sorted})
 
+  getTabClass = (name) => this.state.selectedChannel === name ? "Tab-selected" : "Tab"
 
   getPrograms = () => {
     return this.state.schedule.channels ? this.state.schedule.channels[0].schedule : []
