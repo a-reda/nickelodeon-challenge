@@ -19,6 +19,7 @@ class Program extends Component {
               <div className="Programtext">
                   {this.getFormattedTime(p)}
                   <h3 className="Programtitle">{p.seriesTitle}</h3>
+                  <h3 className="Episodetitle">{p.episodeTitle}</h3>
               </div>
             </div>
             <div className="Toggleiconcontainer">{this.getToggleIcon()}</div>
@@ -43,7 +44,7 @@ class Program extends Component {
 
   getFormattedTime = (p) => {
     const className = p._onnow ? 'Onnow': p._upnext  ? 'Upnext' : 'Timetitle';
-    return (<div className='Leftinfo'>
+    return (<div className='Timerow'>
               <h3 className={className}>{p.formattedTime}</h3>
             </div>)
   }

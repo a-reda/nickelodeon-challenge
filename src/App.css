@@ -46,13 +46,20 @@
     justify-content: left;
 }
 
+.Timerow {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
 .Programdescr {
   background-color: #F2F2F2;
   margin: 5px;
 }
 
 .Thumbnail {
-  height: 70px;
+  height: 90px;
+
 }
 
 .Thumbnail img {
@@ -102,6 +109,10 @@
   color: #27C0D7;
 }
 
+.Episodetitle {
+  display: none;
+}
+
 .Toggleicon {
   height: 50px;
   margin-right: 10px;
@@ -110,4 +121,46 @@
 
 .Toggleiconcontainer {
   align-self: flex-end;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+
+
+}
+
+/* Tablets (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+  .Episodetitle {
+    display: block;
+  }
+
+  .Timerow {
+    flex-direction: column
+  }
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+
+  .Programtext {
+    order: -1
+  }
+
+  .Upnext::before {
+    content: "Up Next  \A";
+    white-space: pre;
+  }
+
+  .Episodetitle {
+    display: block;
+  }
+
+  .Toggleiconcontainer {
+    display: none;
+  }
+
 }

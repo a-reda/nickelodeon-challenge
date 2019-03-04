@@ -33,6 +33,7 @@ class ProgramsList extends Component {
          future[0]._onnow = true
          if (future.length >= 2) future[1]._upnext = true
 
+     // If a search is wanted
      if(this.props.search.length > 0)
         future = _.filter(future, (p) => p.seriesTitle.toLowerCase().search(this.props.search.toLowerCase()) !== -1)
 
