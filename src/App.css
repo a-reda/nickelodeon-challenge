@@ -35,21 +35,8 @@
 }
 
 .Programinfo {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.Leftinfo {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-}
-
-.Timerow {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
+  display: grid;
+  grid-template-columns: 160px 15fr 1fr;
 }
 
 .Programdescr {
@@ -59,7 +46,8 @@
 
 .Thumbnail {
   height: 90px;
-
+  grid-row-start: 1;
+  grid-row-end: 3;
 }
 
 .Thumbnail img {
@@ -67,16 +55,44 @@
   height: 100%;
 }
 
-.Programtext {
-  display: flex;
-  flex-direction: column;
+.Programtime {
+  grid-column-start: 2;
 }
 
-.Programtext h3 {
+.Programtime h3 {
   font-size: 18px;
   padding-left: 10px;
   margin: 4px;
 }
+
+.Programtitle {
+  text-align: left;
+  margin-left: 10px;
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.Programtitle h3 {
+  color: #27C0D7;
+}
+
+.Episodetitle {
+  display: none;
+}
+
+.Toggleiconcontainer {
+  align-self: flex-end;
+  grid-column-start: 3;
+  grid-row-start: 2;
+}
+
+.Toggleicon {
+  height: 50px;
+  margin-right: 10px;
+  color: #CCCCCC;
+}
+
+
 
 .Timetitle {
   font-weight: normal;
@@ -105,23 +121,7 @@
   font-weight: bold;
 }
 
-.Programtitle {
-  color: #27C0D7;
-}
 
-.Episodetitle {
-  display: none;
-}
-
-.Toggleicon {
-  height: 50px;
-  margin-right: 10px;
-  color: #CCCCCC;
-}
-
-.Toggleiconcontainer {
-  align-self: flex-end;
-}
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
@@ -146,7 +146,7 @@
 /* Desktops and laptops ----------- */
 @media only screen  and (min-width : 1224px) {
 
-  .Programtext {
+  .Programtime {
     order: -1
   }
 
