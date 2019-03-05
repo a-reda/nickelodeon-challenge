@@ -29,9 +29,8 @@
 }
 
 h3 {
-  font-size: calc(7px + 2vmin)
+  font-size: calc(10px + 1vmin)
 }
-
 
 .Program {
   display: flex;
@@ -57,6 +56,10 @@ h3 {
 
 .ProgramdescrHidden {
   display : none;
+}
+
+.Descrepisodetitle {
+  font-weight: bold;
 }
 
 .Thumbnail {

@@ -21,8 +21,8 @@ class Program extends Component {
           <div className="Toggleiconcontainer">{this.getToggleIcon()}</div>
         </div>
         <div className={this.state.showDescription ? "Programdescr" : "ProgramdescrHidden"}>
-            <p>{p.episodeTitle}</p>
-            <p>{p.description}</p>
+            <p className="Descrepisodetitle">{p.episodeTitle}</p>
+            <p>{p.description ? this.formatDescription(p): 'No description available'}</p>
         </div>
       </div>
     );
@@ -39,6 +39,10 @@ class Program extends Component {
   getFormattedTime = (p) => {
     const className = p._onnow ? 'Onnow': p._upnext  ? 'Upnext' : 'Timetitle';
     return (<h3 className={className}>{p.formattedTime}</h3>)
+  }
+
+  formatDescription = (p) => {
+    return p.description.replace(/'.*'\s+-\s+/, '')
   }
 
 }
