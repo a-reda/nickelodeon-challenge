@@ -14,7 +14,7 @@ class Program extends Component {
     return (
       <div className="Program">
         <div className="Programinfo">
-          <div className="Thumbnail"><img src={p.images['r16-9']}/></div>
+          <div className="Thumbnail"><img src={p.images ? p.images['r16-9'] : 'http://nickjr-intl.mtvnimages.com/nickjr/nickjr-web/fallbacks/missing_image_nick_jr.jpg?' }/></div>
           <div className="Programtime">{this.getFormattedTime(p)}</div>
           <div className="Programtitle"><h3>{p.seriesTitle}</h3></div>
           <div className="Episodetitle"><h3>{p.episodeTitle}</h3></div>
@@ -35,12 +35,13 @@ class Program extends Component {
           <FaAngleDown className="Toggleicon" onClick={this.toggleDescription}/>
         : <FaAngleUp className="Toggleicon" onClick={this.toggleDescription}/>
 
-
+  // Change the class of the time title for Onnow and Upnext cases
   getFormattedTime = (p) => {
     const className = p._onnow ? 'Onnow': p._upnext  ? 'Upnext' : 'Timetitle';
     return (<h3 className={className}>{p.formattedTime}</h3>)
   }
 
+  // Remove duplicate title in description
   formatDescription = (p) => {
     return p.description.replace(/'.*'\s+-\s+/, '')
   }

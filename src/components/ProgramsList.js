@@ -24,11 +24,15 @@ class ProgramsList extends Component {
       // Filter out past programs
      let future = _.filter(list, (p) => new Date() <= new Date(p.airTime))
 
-     // AFindthe on now program
+     // workaround to show past day schedule ( used in the 2 channel schedule)
+     if(future.length == 0)
+          future = list
+
+     // Find the on now program
      const idx = list.indexOf(future[0]) - 1
      if ( idx > 0 )
        future.unshift(list[idx]);
-
+     // Add flag for Onnow and/or Upnext for Program component use
      if (future.length >= 1)
          future[0]._onnow = true
          if (future.length >= 2) future[1]._upnext = true

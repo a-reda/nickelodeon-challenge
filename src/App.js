@@ -13,17 +13,20 @@ class App extends Component {
     this.state = {
       schedule: {},
       sorted: false,
-      selectedChannel: 'nickjr',
+      selectedChannel: 0,
       searchText: ''
     }
 
   }
 
   getSchedule() {
-    console.log("getting")
-    fetch('/api/schedule')
+
+    const URI = window.location.pathname === '/2' ? '/api/schedule2' : '/api/schedule'
+
+    fetch(URI)
         .then(response => response.json())
         .then(schedule => this.setState({schedule: schedule}))
+        .catch((err) => console.log(err)); // May be better error handling
   }
 
   componentDidMount () {
@@ -35,22 +38,23 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>Schedule</h1>
-          <h3>What's on today: {Date.now()}</h3>
+          <h3>{this.state.schedule.description}</h3>
           <FaSortAlphaDown onClick={this.toggleSort}/>
           <p>{this.state.sorted}</p>
           <input type="text" onChange={this.handleTextChange}/>
         </header>
         <div className="Tabs">
-            <div className={this.getTabClass("nickjr")} onClick={() => this.onSelectTab("nickjr")}>
-              tv1
-            </div>
-            <div className={this.getTabClass("tv2")}  onClick={() => this.onSelectTab("tv2")}>
-              tv2
-            </div>
+            {
+              this.getChannels().length > 1 ?
+              this.getChannels().map((channel, i) => (
+                <div className={this.getTabClass(i)} onClick={() => this.onSelectTab(i)}>
+                  {channel.title || "Nick Jr"}
+                </div>
+              )) : null
+            }
         </div>
         <div>
             <ProgramsList programs={this.getPrograms()} sorted={this.state.sorted} search={this.state.searchText} />
-            <p></p>
         </div>
       </div>
     );
@@ -67,7 +71,8 @@ class App extends Component {
 
   getTabClass = (name) => this.state.selectedChannel === name ? "Tab-selected" : "Tab"
 
-  getPrograms = () => this.state.schedule.channels ? this.state.schedule.channels[0].schedule : []
+  getPrograms = () => this.state.schedule.channels ? this.state.schedule.channels[this.state.selectedChannel].schedule : []
+  getChannels = () => this.state.schedule.channels ? this.state.schedule.channels : []
 
 
 }

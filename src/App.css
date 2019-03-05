@@ -54,6 +54,10 @@ h3 {
   padding: 10px;
 }
 
+.ProgramdescrHidden .Programdescr > p {
+  font-size: calc(10px + 1vmin)
+}
+
 .ProgramdescrHidden {
   display : none;
 }
