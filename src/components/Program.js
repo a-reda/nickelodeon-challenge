@@ -17,15 +17,13 @@ class Program extends Component {
           <div className="Thumbnail"><img src={p.images['r16-9']}/></div>
           <div className="Programtime">{this.getFormattedTime(p)}</div>
           <div className="Programtitle"><h3>{p.seriesTitle}</h3></div>
-          <div><h3 className="Episodetitle">{p.episodeTitle}</h3></div>
+          <div className="Episodetitle"><h3>{p.episodeTitle}</h3></div>
           <div className="Toggleiconcontainer">{this.getToggleIcon()}</div>
         </div>
-        {this.state.showDescription ?
-          <div className="Programdescr">
+        <div className={this.state.showDescription ? "Programdescr" : "ProgramdescrHidden"}>
             <p>{p.episodeTitle}</p>
             <p>{p.description}</p>
-          </div>
-          : ''}
+        </div>
       </div>
     );
   }
