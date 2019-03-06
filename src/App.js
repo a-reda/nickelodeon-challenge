@@ -40,7 +40,7 @@ class App extends Component {
           <div className="Headertitle"><h1>Schedule</h1></div>
           <div className="Sortcontainer"><FaSortAlphaDown onClick={this.toggleSort}/></div>
           <div className="Headerdescription"><h3>{this.state.schedule.description}</h3></div>
-          <div className="Searchcontainer"><input type="text" placeHolder="Search ..." onChange={this.handleTextChange}/></div>
+          <div className="Searchcontainer"><input type="text" placeholder="Search ..." onChange={this.handleTextChange}/></div>
         </header>
         <div className="Tabs">
             {

@@ -13,7 +13,7 @@
 
 .Sortcontainer {
   justify-self: right;
-  font-size: 26px;
+  font-size: 26 px;
 }
 
 .Searchcontainer {
@@ -42,7 +42,8 @@
 .Tab, .Tab-selected {
   display: flex;
   width: 50%;
-  height: 5vh;
+  height: 10vw;
+  max-height: 60px; 
   align-items: center;
   justify-content: center;
   font-weight: bold;
