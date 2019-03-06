@@ -46,7 +46,7 @@ class App extends Component {
             {
               this.getChannels().length > 1 ?
               this.getChannels().map((channel, i) => (
-                <div className={this.getTabClass(i)} onClick={() => this.onSelectTab(i)}>
+                <div key={i} className={this.getTabClass(i)} onClick={() => this.onSelectTab(i)}>
                   {channel.title || "Nick Jr"}
                 </div>
               )) : <div className="Dividor" />

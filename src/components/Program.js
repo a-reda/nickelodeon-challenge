@@ -13,7 +13,7 @@ class Program extends Component {
     return (
       <div className="Program">
         <div className="Programinfo">
-          <div className="Thumbnail"><img src={p.images ? p.images['r16-9'] : 'http://nickjr-intl.mtvnimages.com/nickjr/nickjr-web/fallbacks/missing_image_nick_jr.jpg?' }/></div>
+          <div className="Thumbnail"><img alt='' src={p.images ? p.images['r16-9'] : 'http://nickjr-intl.mtvnimages.com/nickjr/nickjr-web/fallbacks/missing_image_nick_jr.jpg?' }/></div>
           <div className="Programtime">{this.getFormattedTime(p)}</div>
           <div className="Programtitle"><h3>{p.seriesTitle}</h3></div>
           <div className="Episodetitle"><h3>{p.episodeTitle}</h3></div>

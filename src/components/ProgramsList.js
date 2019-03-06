@@ -25,7 +25,7 @@ class ProgramsList extends Component {
      let future = _.filter(list, (p) => new Date() <= new Date(p.airTime))
 
      // workaround to show past day schedule ( used in the 2 channel schedule)
-     if(future.length == 0)
+     if(future.length === 0)
           future = list
 
      // Find the on now program
