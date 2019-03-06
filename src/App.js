@@ -37,11 +37,10 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Schedule</h1>
-          <h3>{this.state.schedule.description}</h3>
-          <FaSortAlphaDown onClick={this.toggleSort}/>
-          <p>{this.state.sorted}</p>
-          <input type="text" onChange={this.handleTextChange}/>
+          <div className="Headertitle"><h1>Schedule</h1></div>
+          <div className="Sortcontainer"><FaSortAlphaDown onClick={this.toggleSort}/></div>
+          <div className="Headerdescription"><h3>{this.state.schedule.description}</h3></div>
+          <div className="Searchcontainer"><input type="text" placeHolder="Search ..." onChange={this.handleTextChange}/></div>
         </header>
         <div className="Tabs">
             {
@@ -50,7 +49,7 @@ class App extends Component {
                 <div className={this.getTabClass(i)} onClick={() => this.onSelectTab(i)}>
                   {channel.title || "Nick Jr"}
                 </div>
-              )) : null
+              )) : <div className="Dividor" />
             }
         </div>
         <div>

@@ -1,13 +1,36 @@
 
 .App-header {
-  background-color: #282c34;
-  min-height: 5vh;
-  display: flex;
-  flex-direction: column;
+  background-color: #FFFF;
+  min-height: 4vh;
+  display: grid;
   align-items: center;
-  justify-content: center;
+  justify-items: left;
+  margin: 10px;
+  grid-template-columns: 2fr 1fr;
   font-size: calc(5px + 2vmin);
-  color: white;
+  color: black;
+}
+
+.Sortcontainer {
+  justify-self: right;
+  font-size: 26px;
+}
+
+.Searchcontainer {
+  justify-self: right;
+  display: none;
+}
+
+.Searchcontainer input {
+  border: 2px solid #CCCCCC;
+  border-radius: 4px;
+  height: 18px;
+}
+
+.Dividor {
+  background-color: #27C0D7;
+  height: 2vh;
+  width: 100%;
 }
 
 .Tabs {
@@ -16,15 +39,21 @@
   align-items: stretch;
 }
 
-.Tab {
+.Tab, .Tab-selected {
+  display: flex;
   width: 50%;
   height: 5vh;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #FFFFFF
+}
+
+.Tab {
   background-color: #CCCCCC;
 }
 
 .Tab-selected {
-  width: 50%;
-  height: 5vh;
   background-color: #27C0D7;
 }
 
@@ -151,6 +180,10 @@ h3 {
 /* Tablets (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 768px)  {
 
+  .Searchcontainer {
+    display: block;
+  }
+
   .Programinfo {
     grid-template-columns: 3fr 160px 13fr 1fr
   }
@@ -185,7 +218,7 @@ h3 {
     white-space: pre;
   }
   .Onnow::before {
-    content: "Up Next  \A";
+    content: "On Now  \A";
     white-space: pre;
   }
 
@@ -193,6 +226,7 @@ h3 {
 
 /* Desktops and laptops ----------- */
 @media only screen  and (min-width : 1224px) {
+
 
   .Programinfo {
     grid-template-columns: 2fr 160px 13fr 1fr
