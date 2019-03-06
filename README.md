@@ -1,5 +1,17 @@
 # nickelodeon-challenge
 
+## Solution instructions
+
+The solution have been created using React. It uses a small Express server to serve the schedules (live schedule and sample schedule with 2 channels).
+
+To start the application, it is required to have `create-react-app` installed then perform the following steps:
+
+* `npm install` shall be run in the `api` and root folder to install required modules.
+* The server shall be run first using `node api/server.js`.
+* The app can be started using `npm start`.
+
+The location `/2` loads a sample schedule with two channels.
+
 ## Instructions
 
 1. Go to the Issues Tab where you will find a description of the task
@@ -12,15 +24,15 @@
     * If you don't have any preference, you can use [`create-react-app`](https://github.com/facebook/create-react-app) which let you create a simple React project.
 
     For futher details on `create-react-app`, please see https://github.com/facebook/create-react-app
-    
-    
+
+
     In order to use `create react app` you need:
     - nodejs + npm
-    
+
       https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
     - (optionally) nvm
-      
+
       https://github.com/creationix/nvm#installation-and-update
 
 
