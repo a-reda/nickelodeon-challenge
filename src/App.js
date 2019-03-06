@@ -61,7 +61,6 @@ class App extends Component {
 
   onSelectTab = (select) => {
     this.setState({selectedChannel: select})
-    console.log(this.state.schedule)
   }
 
   handleTextChange = (e) => this.setState({searchText: e.target.value})

@@ -10,7 +10,6 @@ class Program extends Component {
 
   render() {
     const p = this.props.program
-    console.log(p)
     return (
       <div className="Program">
         <div className="Programinfo">
